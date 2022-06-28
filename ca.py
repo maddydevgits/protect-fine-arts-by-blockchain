@@ -1,1 +1,0 @@
-artsContractAddress='0xB69B6bB443D5f9a7B9c6cAa63Af755078cCa2952'

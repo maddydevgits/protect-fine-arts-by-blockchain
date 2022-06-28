@@ -1,0 +1,1 @@
+artsContractAddress='0xEad8A163C6cfa3a54C1dE1553acAcd88E3DD0C07'

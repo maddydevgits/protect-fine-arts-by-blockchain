@@ -25,7 +25,8 @@ def connect_with_blockchain(acc):
     return contract, web3
 
 def app():
-    st.title('Verify your art')
+    st.title('Register your art')
+    artist=st.text_input('Enter Artist Name')
     img_file=st.file_uploader('Upload your art',type=['jpg','jpeg','png'])
     if img_file is not None:
         file_details={}
@@ -38,16 +39,14 @@ def app():
             f.write(img_file.getbuffer())
         
         st.image(load_img(img_file),width=250)
+    
+    if st.button('Register Art'):
 
         api=ipfsApi.Client('127.0.0.1',5001)
         res=api.add('art.jpg')
         st.write('Hash: '+res['Hash'])
-        hash=str(res['Hash'])
-        contract,web3=connect_with_blockchain(0)
-        _artists,_hashes=contract.functions.viewArts().call()
 
-        if hash in _hashes :
-            hashIndex=_hashes.index(hash)
-            st.success('Artist: '+_artists[hashIndex])
-        else:
-            st.error('You can register your art')
+        contract,web3=connect_with_blockchain(0)
+        tx_hash=contract.functions.addArt(artist,res['Hash']).transact()
+        web3.eth.waitForTransactionReceipt(tx_hash)
+        st.success('Registered in Blockchain')

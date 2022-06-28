@@ -1,5 +1,5 @@
-import app1_register_art
-import app2_verify_art
+import app1_register_art as app1_register_art
+import app2_verify_art as app2_verify_art
 
 import streamlit as st
 

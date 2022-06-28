@@ -6,9 +6,14 @@ contract arts {
   string[] _artists;
   string[] _hashes;
 
+  mapping(string=>bool) _registered;
+
   function addArt(string memory artist, string memory hashes) public {
+
+    require(!_registered[hashes]);
     _artists.push(artist);
     _hashes.push(hashes);
+    _registered[hashes]=true;
   }
   function viewArts() public view returns(string[] memory, string[] memory) {
     return (_artists,_hashes);

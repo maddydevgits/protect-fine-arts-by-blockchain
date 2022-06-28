@@ -1,1 +1,1 @@
-artsContractAddress='0xEad8A163C6cfa3a54C1dE1553acAcd88E3DD0C07'
+artsContractAddress='0xea677bA6cE26Aa9B406c4C2d838DF440088c6152'

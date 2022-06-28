@@ -13,6 +13,7 @@ Protect Fine Arts by using Blockchain, whenever you upload this file to IPFS, it
 # Packages
 1. pip install web3
 2. pip install streamlit
+3. pip install ipfsApi
 
 # Process
 1. Install Softwares
